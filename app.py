@@ -2,7 +2,8 @@ from flask import Flask, url_for, redirect, render_template
 from forms import ContactForm
 
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=False)
+app.config.from_object('config.Config')
 
 
 @app.route('/', methods=['GET', 'POST'])
