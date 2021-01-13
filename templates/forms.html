@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Contact form</h2>
+
+    <form method="POST" action="">
+        <div class="form-field">
+            {{ form.name.label }}
+            {{ form.name }}
+        </div>
+
+        <div class="form-field">
+            {{ form.email.label }}
+            {{ form.email }}
+        </div>
+
+        <div class="form-field">
+            {{ form.body.label }}
+            {{ form.body }}
+        </div>
+
+        {{ form.submit }}
+    </form>
+
+{% endblock %}
