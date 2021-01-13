@@ -10,7 +10,7 @@ def hello_world():
     form = ContactForm()
     if form.validate_on_submit():
         return redirect(url_for('success'))
-    return render_template('index.html', form=form)
+    return render_template('forms.html', form=form)
 
 
 if __name__ == '__main__':
