@@ -3,7 +3,7 @@
 {% block content %}
     <div class="formwrapper">
         <h2 class="title">Sign Up</h2>
-        <form method="POST" action="/">
+        <form method="POST" action="">
             {{ form.csrf_token }}
             <div class="form-field">{{ form.email.label }} {{ form.email }}
                 {% if form.email.errors %}
@@ -23,10 +23,10 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.confirmPassword.label }} {{ form.confirmPassword }}
-                {% if form.confirmPassword.errors %}
+            <div class="form-field">{{ form.password_again.label }} {{ form.password_again }}
+                {% if form.password_again.errors %}
                     <ul class="errors">
-                        {% for error in form.confirmPassword.errors %}
+                        {% for error in form.password_again.errors %}
                             <li>{{ error }}</li>
                         {% endfor %}
                     </ul>
@@ -60,7 +60,6 @@
                     </ul>
                 {% endif %}
             </div>
-            {{ form.recaptcha }}
             {{ form.submit }}
         </form>
     </div>

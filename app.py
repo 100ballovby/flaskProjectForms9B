@@ -14,7 +14,7 @@ def contact():
     return render_template('forms.html', form=form)
 
 
-@app.route('signup', methods=['GET', 'POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():

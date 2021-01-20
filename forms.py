@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm, RecaptchaField
+from flask_wtf import FlaskForm
 # flask web text forms
 from wtforms import StringField, TextAreaField, SubmitField, PasswordField, DateField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo, URL
@@ -16,8 +16,8 @@ class ContactForm(FlaskForm):
 class RegisterForm(FlaskForm):
     """Sign up form class"""
     email = StringField('Email', [DataRequired()])
-    password = PasswordField('Пароль', [DataRequired(message='Введите пароль!')])
-    password_again = PasswordField('Пароль (подтверждение)',
+    password = PasswordField('Password', [DataRequired(message='Введите пароль!')])
+    password_again = PasswordField('Password again',
                                    [EqualTo(password, message='Пароль не совпадает!')])
 
     title = SelectField('Профессия',
@@ -28,6 +28,5 @@ class RegisterForm(FlaskForm):
                             ('Тренер покемонов', 'pokemon'),
                             ('Просто чел', 'man')])
     website = StringField('Сайт', [URL()])
-    birthday = DateField('Ваша дата рождения: ')
-    recaptcha = RecaptchaField()
+    birthday = DateField('Ваша дата рождения: ', format='%m/%d/%Y')
     submit = SubmitField('Зарегистрироваться')
