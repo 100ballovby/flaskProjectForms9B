@@ -1,5 +1,5 @@
 from flask import Flask, url_for, redirect, render_template
-from forms import ContactForm
+from forms import ContactForm, RegisterForm
 
 
 app = Flask(__name__, instance_relative_config=False)
@@ -12,6 +12,14 @@ def contact():
     if form.validate_on_submit():
         return redirect(url_for('success'))
     return render_template('forms.html', form=form)
+
+
+@app.route('signup', methods=['GET', 'POST'])
+def signup():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        return redirect(url_for('success'))
+    return render_template('signup.html', form=form)
 
 
 @app.route('/')
