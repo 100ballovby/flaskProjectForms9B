@@ -4,6 +4,7 @@
     <h2>Contact form</h2>
 
     <form method="POST" action="">
+        {{ form.csrf_token }}
         <div class="form-field">
             {{ form.name.label }}
             {{ form.name }}
